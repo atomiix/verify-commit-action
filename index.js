@@ -11,7 +11,8 @@ async function run() {
 
     console.log(pullRequest);*/
 
-    console.log(github.context.payload.commits);
+    console.log(github.context.payload);
+    console.log(github.context.issue);
 }
 
 run();
