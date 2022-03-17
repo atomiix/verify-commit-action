@@ -52,6 +52,8 @@ async function run() {
             }
         }
     });
+    console.log(commits);
+    // new commit
 }
 
 run();
