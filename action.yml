@@ -1,0 +1,5 @@
+name: 'Verify commits'
+description: 'Verify that commits from a maintainer group are signed'
+runs:
+  using: 'node16'
+  main: 'index.js'
