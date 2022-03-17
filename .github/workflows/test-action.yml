@@ -8,4 +8,5 @@ jobs:
       - name: Test Verify Commits
         uses: atomiix/verify-commit-action@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          only-organization: true
