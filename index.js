@@ -7,11 +7,19 @@ async function run() {
         return;
     }
 
+<<<<<<< HEAD
     const token = core.getInput('repo-token', { required: true });
     const checkMembers = core.getInput('only-organization', { required: true });
 
     const octokit = github.getOctokit(token);
 
+=======
+    const octokit = github.getOctokit(core.getInput('repo-token', { required: true }));
+    const members = await octokit.paginate(octokit.rest.orgs.listMembers, {
+        org: github.context.repo.owner,
+        per_page: 100
+    });
+>>>>>>> 28928fc (test pull request)
     const commits = await octokit.paginate(octokit.rest.pulls.listCommits, {
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
