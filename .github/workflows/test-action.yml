@@ -1,0 +1,9 @@
+on: [push]
+
+jobs:
+  test_verify_commit:
+    runs-on: ubuntu-latest
+    name: Test Verify Commits
+    steps:
+      - name: Test Verify Commits
+        uses: atomiix/verify-commit-action@main
