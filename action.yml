@@ -1,5 +1,13 @@
 name: 'Verify commits'
 description: 'Verify that commits from a maintainer group are signed'
+inputs:
+  repo-token:
+    description: "Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}"
+    required: true
+  only-organization:
+    description: ""
+    required: true
+    default: "false"
 runs:
   using: 'node16'
   main: 'index.js'
