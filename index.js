@@ -2,17 +2,19 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 async function run() {
-    /*const octokit = github.getOctokit(core.getInput('token'));
-    const pullRequest = await octokit.rest.pulls.get({
+    if (github.context.issue?.number === undefined) {
+        core.warning('Cannot run the action');
+        return;
+    }
+
+    const octokit = github.getOctokit(core.getInput('repo-token', { required: true }));
+    const commits = octokit.paginate(octokit.rest.pulls.get, {
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
-        pull_number: github.context.issue.number,
+        pull_number: github.context.issue.number
     });
 
-    console.log(pullRequest);*/
-
-    console.log(github.context.payload);
-    console.log(github.context.issue);
+    console.log(commits);
 }
 
 run();
